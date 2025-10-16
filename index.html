@@ -95,6 +95,76 @@
             display: block;
         }
 
+        .item-info {
+            padding: 15px;
+            background: white;
+        }
+
+        .item-name {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #d81b60;
+            margin-bottom: 8px;
+        }
+
+        .item-price {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #880e4f;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 10px;
+            animation: zoomIn 0.3s ease;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: white;
+            font-size: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .close-modal:hover {
+            transform: scale(1.2);
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
         .whatsapp-btn {
             position: fixed;
             bottom: 30px;
@@ -266,7 +336,7 @@
 
         <div class="cta-section">
             <h2>Sorprende a Mamá con Aretes Únicos</h2>
-            <p>✨ Encuentra el par perfecto para demostrarle cuánto la amas ✨</p>
+            <p>✨ Encuentra el regalo perfecto para demostrarle cuánto la amas ✨</p>
             <p>Cada diseño es especial, como ella</p>
         </div>
 
@@ -281,38 +351,90 @@
         Consultar por WhatsApp
     </a>
 
+    <!-- Modal para imagen ampliada -->
+    <div class="modal" id="imageModal">
+        <span class="close-modal" id="closeModal">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
     <script>
-        // URLs de las imágenes
+        // URLs de las imágenes con nombres y precios
         const images = [
-            "https://i.ibb.co/KpNZxqZy/image.jpg",
-            "https://i.ibb.co/WjpnNz4/image.jpg",
-            "https://i.ibb.co/MDGgWFYB/image.jpg",
-            "https://i.ibb.co/dwLqBxR2/image.jpg",
-            "https://i.ibb.co/Fq0LpQ0D/image.jpg",
-            "https://i.ibb.co/jPkdQtLX/image.jpg",
-            "https://i.ibb.co/cc4xB7mj/image.jpg",
-            "https://i.ibb.co/T6DSNTR/image.jpg",
-            "https://i.ibb.co/0pnxKZDR/image.jpg",
-            "https://i.ibb.co/mrXgWk0R/image.jpg",
-            "https://i.ibb.co/CsKrPyQF/image.jpg",
-            "https://i.ibb.co/hFR6mVjt/image.jpg",
-            "https://i.ibb.co/KcMDSLXB/image.jpg",
-            "https://i.ibb.co/d0KL6WbP/image.jpg",
-            "https://i.ibb.co/TMkXKfNS/image.jpg",
-            "https://i.ibb.co/wFWMqvnn/image.jpg",
-            "https://i.ibb.co/35wjvQjW/image.jpg"
+            { url: "https://i.ibb.co/2YMhchyD/CELTA.png", name: "Aretes Celta con Verde", price: "$6499" },
+            { url: "https://i.ibb.co/93HRHNJM/CELTA-PERLA.png", name: "Aretes Celta con Perlas", price: "$6499" },
+            { url: "https://i.ibb.co/gLnGyBwR/OJO-TURCO.png", name: "Aretes Ojo Turco", price: "$6599" },
+            { url: "https://i.ibb.co/Hfxs73jz/FLOR-NEGRA.png", name: "Aretes Flores Negras", price: "$3999" },
+            { url: "https://i.ibb.co/Psm9yXTK/FLORES-PERLA.png", name: "Aretes Flor con Perla", price: "$6999" },
+            { url: "https://i.ibb.co/Y7q76WGw/HOJAS.png", name: "Aretes Hojas", price: "$7499" },
+            { url: "https://i.ibb.co/hRr8QjhQ/HOOPS.png", name: "Aretes Hoops 1", price: "$6999" },
+            { url: "https://i.ibb.co/Z5RPbJK/HOOPS2.png", name: "Aretes Hoops 2", price: "$7499" },
+            { url: "https://i.ibb.co/8nmHb2KL/MARIPOSA.png", name: "Aretes Mariposa Dorada", price: "$6499" },
+            { url: "https://i.ibb.co/hxZwzbcg/MARIPOSA-CRISTAL.png", name: "Aretes Mariposa", price: "$5999" },
+            { url: "https://i.ibb.co/G3QhHDRj/MARIQUITA-AZUL.png", name: "Aretes Cocomiel Azul", price: "$5999" },
+            { url: "https://i.ibb.co/WvWh2fwY/MARIQUITA-BLANCA.png", name: "Aretes Cocomiel Blanco", price: "$5999" },
+            { url: "https://i.ibb.co/Q3K53KGW/MARIQUITA-PERLA.png", name: "Aretes Cocomiel Perla", price: "$5999" },
+            { url: "https://i.ibb.co/6Rs1bnvH/MARIQUITA-ROJA.png", name: "Aretes Cocomiel Rojos", price: "$5999" },
+            { url: "https://i.ibb.co/1GLVsg45/PATITAS-MARIQUITA.png", name: "Aretes Cocomiel Pies", price: "$5999" },
+            { url: "https://i.ibb.co/Rk0zK5XX/TREBOL-BLANCO.png", name: "Aretes Trebol Blanco", price: "$7999" },
+            { url: "https://i.ibb.co/sphNCzNQ/TREBOL-NEGRO.png", name: "Aretes Trebol Negro", price: "$7999" }
         ];
 
         // Crear galería
         const gallery = document.getElementById('gallery');
         
-        images.forEach((imgUrl, index) => {
-            const item = document.createElement('div');
-            item.className = 'gallery-item';
-            item.innerHTML = `
-                <img src="${imgUrl}" alt="Aretes ${index + 1}" loading="lazy">
+        images.forEach((item, index) => {
+            const galleryItem = document.createElement('div');
+            galleryItem.className = 'gallery-item';
+            galleryItem.innerHTML = `
+                <img src="${item.url}" alt="${item.name}" loading="lazy">
+                <div class="item-info">
+                    <div class="item-name">${item.name}</div>
+                    <div class="item-price">${item.price}</div>
+                </div>
             `;
-            gallery.appendChild(item);
+            
+            // Agregar evento click para abrir modal
+            const img = galleryItem.querySelector('img');
+            img.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const modal = document.getElementById('imageModal');
+                const modalImg = document.getElementById('modalImage');
+                modal.classList.add('active');
+                modalImg.src = item.url;
+                modalImg.dataset.index = index + 1;
+                modalImg.dataset.name = item.name;
+                modalImg.dataset.price = item.price;
+            });
+            
+            gallery.appendChild(galleryItem);
+        });
+
+        // Cerrar modal
+        const modal = document.getElementById('imageModal');
+        const closeBtn = document.getElementById('closeModal');
+        
+        closeBtn.addEventListener('click', function() {
+            modal.classList.remove('active');
+        });
+        
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // Modificar botón de WhatsApp para incluir información del producto
+        modal.addEventListener('click', function(e) {
+            const modalImg = document.getElementById('modalImage');
+            const imageNumber = modalImg.dataset.index;
+            const itemName = modalImg.dataset.name;
+            const itemPrice = modalImg.dataset.price;
+            
+            if (e.target === modalImg) {
+                const message = `Hola! Me interesan los ${itemName} (${itemPrice}) - Imagen ${imageNumber} para el Día de las Madres`;
+                const newHref = `https://wa.me/5491234567890?text=${encodeURIComponent(message)}`;
+                window.open(newHref, '_blank');
+            }
         });
 
         // Crear corazones flotantes
