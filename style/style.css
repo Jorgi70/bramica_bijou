@@ -106,10 +106,27 @@ iframe {
     margin-bottom: 8px;
 }
 
+.item-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
 .item-price {
     font-size: 1.3em;
     font-weight: bold;
     color: #880e4f;
+}
+
+.item-size {
+            font-size: 0.85em;
+            color: #555;
+            background: #f0f0f0;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+            
 }
 
 .modal {
