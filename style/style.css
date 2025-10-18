@@ -82,6 +82,26 @@ iframe {
     cursor: pointer;
 }
 
+.gallery-item.out-of-stock {
+    opacity: 0.6;
+}
+
+.out-of-stock-badge {
+    position: absolute;
+     top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(220, 20, 60, 0.95);
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 10px;
+    z-index: 10;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    pointer-events: none;
+}
+
 .gallery-item:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: 0 15px 40px rgba(216, 27, 96, 0.3);
@@ -333,3 +353,4 @@ iframe {
         right: 20px;
     }
 }
+
