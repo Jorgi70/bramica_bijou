@@ -51,42 +51,42 @@
     <script>
         // URLs de las imágenes con nombres y precios
         const images = [
-            { url: "https://i.ibb.co/2YMhchyD/CELTA.png", name: "Aretes Celta con Verde", price: "$6499", size: "" },
-            { url: "https://i.ibb.co/93HRHNJM/CELTA-PERLA.png", name: "Aretes Celta con Perlas", price: "$6499", size: "" },
-            { url: "https://i.ibb.co/gLnGyBwR/OJO-TURCO.png", name: "Aretes Ojo Turco", price: "$6599", size: "" },
-            { url: "https://i.ibb.co/Hfxs73jz/FLOR-NEGRA.png", name: "Aretes Flores Negras", price: "$3999", size: "" },
-            { url: "https://i.ibb.co/Psm9yXTK/FLORES-PERLA.png", name: "Aretes Flor con Perla", price: "$6999", size: "" },
-            { url: "https://i.ibb.co/Y7q76WGw/HOJAS.png", name: "Aretes Hojas", price: "$7499", size: "" },
-            { url: "https://i.ibb.co/hRr8QjhQ/HOOPS.png", name: "Aretes Hoops 1", price: "$6999", size: "" },
-            { url: "https://i.ibb.co/Z5RPbJK/HOOPS2.png", name: "Aretes Hoops 2", price: "$7499", size: "" },
-            { url: "https://i.ibb.co/8nmHb2KL/MARIPOSA.png", name: "Aretes Mariposa Dorada", price: "$6499", size: "" },
-            { url: "https://i.ibb.co/hxZwzbcg/MARIPOSA-CRISTAL.png", name: "Aretes Mariposa", price: "$5999", size: "" },
-            { url: "https://i.ibb.co/G3QhHDRj/MARIQUITA-AZUL.png", name: "Aretes Cocomiel Azul", price: "$5999", size: "" },
-            { url: "https://i.ibb.co/WvWh2fwY/MARIQUITA-BLANCA.png", name: "Aretes Cocomiel Blanco", price: "$5999", size: "" },
-            { url: "https://i.ibb.co/Q3K53KGW/MARIQUITA-PERLA.png", name: "Aretes Cocomiel Perla", price: "$5999", size: "" },
-            { url: "https://i.ibb.co/6Rs1bnvH/MARIQUITA-ROJA.png", name: "Aretes Cocomiel Rojos", price: "$5999", size: "" },
-            { url: "https://i.ibb.co/1GLVsg45/PATITAS-MARIQUITA.png", name: "Aretes Cocomiel Pies", price: "$5999", size: "" },
-            { url: "https://i.ibb.co/Rk0zK5XX/TREBOL-BLANCO.png", name: "Aretes Trebol Blanco", price: "$7999", size: "" },
-            { url: "https://i.ibb.co/sphNCzNQ/TREBOL-NEGRO.png", name: "Aretes Trebol Negro", price: "$7999", size: "" },
-            { url: "https://i.ibb.co/Xf3mtMbF/SERPIENTE-ROSA.jpg", name: "Aretes Serpiente Rosa", price: "$5999", size: "" },
+            { url: "https://i.ibb.co/2YMhchyD/CELTA.png", name: "Aretes Celta con Verde", price: "$6499", size: "", inStock: true},
+            { url: "https://i.ibb.co/93HRHNJM/CELTA-PERLA.png", name: "Aretes Celta con Perlas", price: "$6499", size: "", inStock: true},
+            { url: "https://i.ibb.co/gLnGyBwR/OJO-TURCO.png", name: "Aretes Ojo Turco", price: "$6599", size: "", inStock: true},
+            { url: "https://i.ibb.co/Hfxs73jz/FLOR-NEGRA.png", name: "Aretes Flores Negras", price: "$3999", size: "", inStock: true},
+            { url: "https://i.ibb.co/Psm9yXTK/FLORES-PERLA.png", name: "Aretes Flor con Perla", price: "$6999", size: "", inStock: true},
+            { url: "https://i.ibb.co/Y7q76WGw/HOJAS.png", name: "Aretes Hojas", price: "$7499", size: "", inStock: true},
+            { url: "https://i.ibb.co/hRr8QjhQ/HOOPS.png", name: "Aretes Hoops 1", price: "$6999", size: "", inStock: true},
+            { url: "https://i.ibb.co/Z5RPbJK/HOOPS2.png", name: "Aretes Hoops 2", price: "$7499", size: "", inStock: true},
+            { url: "https://i.ibb.co/8nmHb2KL/MARIPOSA.png", name: "Aretes Mariposa Dorada", price: "$6499", size: "", inStock: true},
+            { url: "https://i.ibb.co/hxZwzbcg/MARIPOSA-CRISTAL.png", name: "Aretes Mariposa", price: "$5999", size: "", inStock: true},
+            { url: "https://i.ibb.co/G3QhHDRj/MARIQUITA-AZUL.png", name: "Aretes Cocomiel Azul", price: "$5999", size: "", inStock: true},
+            { url: "https://i.ibb.co/WvWh2fwY/MARIQUITA-BLANCA.png", name: "Aretes Cocomiel Blanco", price: "$5999", size: "", inStock: true},
+            { url: "https://i.ibb.co/Q3K53KGW/MARIQUITA-PERLA.png", name: "Aretes Cocomiel Perla", price: "$5999", size: "", inStock: true},
+            { url: "https://i.ibb.co/6Rs1bnvH/MARIQUITA-ROJA.png", name: "Aretes Cocomiel Rojos", price: "$5999", size: "", inStock: true},
+            { url: "https://i.ibb.co/1GLVsg45/PATITAS-MARIQUITA.png", name: "Aretes Cocomiel Pies", price: "$5999", size: "", inStock: true},
+            { url: "https://i.ibb.co/Rk0zK5XX/TREBOL-BLANCO.png", name: "Aretes Trebol Blanco", price: "$7999", size: "", inStock: true},
+            { url: "https://i.ibb.co/sphNCzNQ/TREBOL-NEGRO.png", name: "Aretes Trebol Negro", price: "$7999", size: "", inStock: true},
+            { url: "https://i.ibb.co/Xf3mtMbF/SERPIENTE-ROSA.jpg", name: "Aretes Serpiente Rosa", price: "$5999", size: "", inStock: true},
             // CADENAS
-            { url: "https://i.ibb.co/gMzxpPN4/CADENA-CORA1.png", name: "Cadena Doble Corazon", price: "$8999", size: "" },
-            { url: "https://i.ibb.co/60k6wXLv/CADENA-CORA2.png", name: "Cadena Corazon", price: "$9499", size: "" },
-            { url: "https://i.ibb.co/BKqs4sZC/CADENA-TURCO.png", name: "Cadena Infinito - Ojo Turco", price: "$7999", size: "" },
-            { url: "https://i.ibb.co/DgrpvgF7/CADENA-ARBOL.png", name: "Cadena Arbol", price: "$11999", size: "" },
-            { url: "https://i.ibb.co/wNn8NL2s/CADENA-CERE1.png", name: "Cadena Cereza", price: "$7999", size: "" },
-            { url: "https://i.ibb.co/RpGHy6fp/CADENA-CERE2.png", name: "Cadena Cereza con Hojas", price: "$8499", size: "" },
-            { url: "https://i.ibb.co/Wv5PdDHp/CADENA-MARI-NEGRA.png", name: "Cadena Mariposa", price: "$8999", size: ""},
+            { url: "https://i.ibb.co/gMzxpPN4/CADENA-CORA1.png", name: "Cadena Doble Corazon", price: "$8999", size: "", inStock: true},
+            { url: "https://i.ibb.co/60k6wXLv/CADENA-CORA2.png", name: "Cadena Corazon", price: "$9499", size: "", inStock: true},
+            { url: "https://i.ibb.co/BKqs4sZC/CADENA-TURCO.png", name: "Cadena Infinito - Ojo Turco", price: "$7999", size: "", inStock: true},
+            { url: "https://i.ibb.co/DgrpvgF7/CADENA-ARBOL.png", name: "Cadena Arbol", price: "$11999", size: "", inStock: true},
+            { url: "https://i.ibb.co/wNn8NL2s/CADENA-CERE1.png", name: "Cadena Cereza", price: "$7999", size: "", inStock: true},
+            { url: "https://i.ibb.co/RpGHy6fp/CADENA-CERE2.png", name: "Cadena Cereza con Hojas", price: "$8499", size: "", inStock: true},
+            { url: "https://i.ibb.co/Wv5PdDHp/CADENA-MARI-NEGRA.png", name: "Cadena Mariposa", price: "$8999", size: "", inStock: true},
             // ANILLOS
-            { url: "https://i.ibb.co/BK71JB1S/ANILLO-GOTA.png", name: "Anillo Gota", price: "$6499", size: "18" },
-            { url: "https://i.ibb.co/xttK0z2z/ANILLO-HOJA.png", name: "Anillo Hoja", price: "$7499", size: "" },
-            { url: "https://i.ibb.co/XktQgp3H/ANILLO-LOVE.png", name: "Anillo Love", price: "$6999", size: "21" },
-            { url: "https://i.ibb.co/JFRQ904m/ANILLO-LUNA.png", name: "Anilo Luna", price: "$6999", size: "16" },
-            { url: "https://i.ibb.co/NPpdpSz/ANILLO-MARGA.png", name: "Anillo Margarita", price: "$7999", size: "18" },
-            { url: "https://i.ibb.co/0VdMYtgf/ANILLO-TREBOL-AZUL.png", name: "Anillo Trebo Azul", price: "$6999", size: "19" },
-            { url: "https://i.ibb.co/5W2LDGKY/ANILLO-TREBOL-BLANCO.png", name: "Anillo Trebol Blanco", price: "$5999", size: "16" },
-            { url: "https://i.ibb.co/q3w0nhkM/ANILLO-000.png", name: "Anillo 000", price: "$5999", size: "" },
-            { url: "https://i.ibb.co/5XHFsxBT/ANILLO-CORA.png", name: "Anillo Corazon", price: "$7999", size: "" }
+            { url: "https://i.ibb.co/BK71JB1S/ANILLO-GOTA.png", name: "Anillo Gota", price: "$6499", size: "18", inStock: true },
+            { url: "https://i.ibb.co/xttK0z2z/ANILLO-HOJA.png", name: "Anillo Hoja", price: "$7499", size: "", inStock: true},
+            { url: "https://i.ibb.co/XktQgp3H/ANILLO-LOVE.png", name: "Anillo Love", price: "$6999", size: "21", inStock: true},
+            { url: "https://i.ibb.co/JFRQ904m/ANILLO-LUNA.png", name: "Anilo Luna", price: "$6999", size: "16", inStock: true},
+            { url: "https://i.ibb.co/NPpdpSz/ANILLO-MARGA.png", name: "Anillo Margarita", price: "$7999", size: "18", inStock: true},
+            { url: "https://i.ibb.co/0VdMYtgf/ANILLO-TREBOL-AZUL.png", name: "Anillo Trebo Azul", price: "$6999", size: "19", inStock: true},
+            { url: "https://i.ibb.co/5W2LDGKY/ANILLO-TREBOL-BLANCO.png", name: "Anillo Trebol Blanco", price: "$5999", size: "16", inStock: true},
+            { url: "https://i.ibb.co/q3w0nhkM/ANILLO-000.png", name: "Anillo 000", price: "$5999", size: "", inStock: true},
+            { url: "https://i.ibb.co/5XHFsxBT/ANILLO-CORA.png", name: "Anillo Corazon", price: "$7999", size: "", inStock: true}
             //PULSERA
         ];
 
@@ -96,7 +96,14 @@
         images.forEach((item, index) => {
             const galleryItem = document.createElement('div');
             galleryItem.className = 'gallery-item';
+
+            // Agregar clase si no hay stock
+            if (!item.inStock) {
+                galleryItem.classList.add('out-of-stock');
+            }
+            
             galleryItem.innerHTML = `
+                ${!item.inStock ? '<div class="out-of-stock-badge">SIN STOCK</div>' : ''}
                 <img src="${item.url}" alt="${item.name}" loading="lazy">
                 <div class="item-info">
                     <div class="item-name">${item.name}</div>
@@ -111,6 +118,12 @@
             const img = galleryItem.querySelector('img');
             img.addEventListener('click', function(e) {
                 e.stopPropagation();
+
+                if (!item.inStock) {
+                    alert('Este producto está sin stock actualmente');
+                    return;
+                }
+                
                 const modal = document.getElementById('imageModal');
                 const modalImg = document.getElementById('modalImage');
                 modal.classList.add('active');
@@ -173,4 +186,5 @@
     </script>
 </body>
 </html>
+
 
